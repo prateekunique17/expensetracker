@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Tips - Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .tips-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            position: relative;
+            z-index: 10;
+        }
+        .tips-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInDown 0.8s ease;
+        }
+        .tips-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff 0%, #ff8c42 50%, #ff6b35 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+        .tips-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .tip-card {
+            background: var(--bg-glass);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-card);
+            border: var(--border-subtle);
+            backdrop-filter: blur(20px);
+            transition: all var(--transition-smooth);
+            animation: fadeInUp 0.6s ease;
+            animation-fill-mode: both;
+        }
+        .tip-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg), 0 0 30px var(--orange-glow-soft);
+            border-color: rgba(255, 107, 53, 0.3);
+        }
+        .tip-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.2) 0%, rgba(255, 107, 53, 0.05) 100%);
+            color: var(--orange-primary);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.15);
+            transition: transform 0.3s ease;
+        }
+        .tip-card:hover .tip-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        .tip-card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        .tip-card-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .back-nav {
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+        }
+        .back-nav a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .back-nav a:hover {
+            color: var(--orange-primary);
+        }
+        
+        .tip-card:nth-child(1) { animation-delay: 0.1s; }
+        .tip-card:nth-child(2) { animation-delay: 0.2s; }
+        .tip-card:nth-child(3) { animation-delay: 0.3s; }
+        .tip-card:nth-child(4) { animation-delay: 0.4s; }
+        .tip-card:nth-child(5) { animation-delay: 0.5s; }
+        .tip-card:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="tips-container">
+        <div class="back-nav">
+            <a href="dashboard.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Back to Dashboard
+            </a>
+        </div>
+        
+        <header class="tips-header">
+            <h1 class="tips-title">Financial Tips & Strategies</h1>
+            <p class="tips-subtitle">Master your money through saving smarter and making better investments</p>
+        </header>
+
+        <div class="tips-grid">
+            <div class="tip-card">
+                <div class="tip-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+                        <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+                    </svg>
+                </div>
+                <h3 class="tip-card-title">The 50/30/20 Rule</h3>
+                <p class="tip-card-desc">Allocate 50% of your income to needs (rent, groceries), 30% to wants (entertainment, dining), and 20% strictly to savings and paying off debt. This helps maintain balanced financial health.</p>
+            </div>
+
+            <div class="tip-card">
+                <div class="tip-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2v20"></path>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                </div>
+                <h3 class="tip-card-title">Build an Emergency Fund</h3>
+                <p class="tip-card-desc">Save up 3 to 6 months of living expenses in a highly liquid and accessible account. This acts as a financial buffer against unexpected events like medical emergencies or job loss.</p>
+            </div>
+
+            <div class="tip-card">
+                <div class="tip-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    </svg>
+                </div>
+                <h3 class="tip-card-title">Compound Interest Magic</h3>
+                <p class="tip-card-desc">Start investing early. Compound interest means your money makes money, and then that money makes more money. Time in the market always beats timing the market.</p>
+            </div>
+
+            <div class="tip-card">
+                <div class="tip-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    </svg>
+                </div>
+                <h3 class="tip-card-title">Diversify Investments</h3>
+                <p class="tip-card-desc">Don't put all your eggs in one basket. Spread your investments across different asset classes (stocks, bonds, real estate) to minimize risk and stabilize potential returns over time.</p>
+            </div>
+
+            <div class="tip-card">
+                <div class="tip-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                </div>
+                <h3 class="tip-card-title">Automate Your Savings</h3>
+                <p class="tip-card-desc">Set up automatic transfers from your checking account to your savings or investment accounts right after payday. "Pay yourself first" ensures consistency without needing willpower.</p>
+            </div>
+
+            <div class="tip-card">
+                <div class="tip-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </div>
+                <h3 class="tip-card-title">Clear High-Interest Debt</h3>
+                <p class="tip-card-desc">Before aggressively investing, focus on eliminating high-interest debt like credit card balances. Guaranteedly removing a 20% interest rate is better than chasing uncertain 8% market returns.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

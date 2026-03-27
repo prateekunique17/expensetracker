@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .login-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+        .login-card {
+            background: var(--bg-glass);
+            border-radius: var(--radius-xl);
+            padding: 3rem;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: var(--shadow-xl);
+            border: var(--border-subtle);
+            backdrop-filter: blur(20px);
+            animation: fadeInUp 0.8s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .login-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--orange-gradient);
+        }
+        .login-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .login-card-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #ff8c42 50%, #ff6b35 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .login-card-subtitle {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .login-form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .login-form-group label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-left: 0.25rem;
+        }
+        .login-input {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(20, 20, 20, 0.9) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: var(--radius-md);
+            padding: 1rem 1.25rem;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all var(--transition-base);
+            outline: none;
+            width: 100%;
+        }
+        .login-input:focus {
+            border-color: var(--orange-primary);
+            box-shadow: 0 0 0 3px var(--orange-glow-soft);
+        }
+        .login-btn {
+            background: var(--orange-gradient);
+            color: var(--text-primary);
+            border: none;
+            padding: 1.2rem;
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all var(--transition-smooth);
+            margin-top: 1rem;
+            box-shadow: 0 4px 20px var(--orange-glow-soft);
+        }
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px var(--orange-glow);
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 1.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .back-link:hover {
+            color: var(--orange-primary);
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <h2 class="login-card-title">Welcome Back</h2>
+                <p class="login-card-subtitle">Enter your details to access your dashboard</p>
+            </div>
+            <form id="loginForm" class="login-form">
+                <div class="login-form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" class="login-input" placeholder="example@email.com" required>
+                </div>
+                <div class="login-form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="login-input" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="login-btn" id="loginSubmitBtn">Log In</button>
+            </form>
+            <a href="index.html" class="back-link">← Back to home</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            if(email && password) {
+                const btn = document.getElementById('loginSubmitBtn');
+                btn.textContent = 'Authenticating...';
+                btn.style.opacity = '0.8';
+                
+                setTimeout(() => {
+                    window.location.href = 'dashboard.html';
+                }, 800);
+            }
+        });
+    </script>
+</body>
+</html>
