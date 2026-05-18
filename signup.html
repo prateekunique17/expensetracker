@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Expense Tracker</title>
+    <title>Sign Up - Expense Tracker</title>
     <link rel="stylesheet" href="style.css">
     <script src="theme.js"></script>
     <style>
@@ -62,10 +62,14 @@
         </div>
         <div class="auth-card">
             <div class="auth-header">
-                <h2 class="auth-title">Welcome Back</h2>
-                <p class="auth-subtitle">Log in to your account to continue</p>
+                <h2 class="auth-title">Create an Account</h2>
+                <p class="auth-subtitle">Join us to start tracking your expenses</p>
             </div>
-            <form id="loginForm" class="auth-form">
+            <form id="signupForm" class="auth-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required>
+                </div>
                 <div class="form-group">
                     <label for="email">Email Address</label>
                     <input type="email" id="email" required>
@@ -74,16 +78,16 @@
                     <label for="password">Password</label>
                     <input type="password" id="password" required>
                 </div>
-                <button type="submit" class="btn-primary" id="loginBtn">Log In</button>
+                <button type="submit" class="btn-primary" id="signupBtn">Sign Up</button>
             </form>
             <div class="auth-links">
-                <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+                <p>Already have an account? <a href="login.html">Log in</a></p>
                 <p style="margin-top: 0.5rem;"><a href="index.html">← Back to home</a></p>
             </div>
         </div>
     </div>
     <script>
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
             e.preventDefault();
             window.location.href = 'dashboard.html';
         });
